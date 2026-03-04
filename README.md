@@ -40,7 +40,7 @@ pip install -r requirements.txt
 Once the dependencies are installed, you can run the application using the following command:
 
 ```bash
-streamlit run app.py
+streamlit run main.py
 ``` 
 
 
