@@ -42,5 +42,3 @@ Once the dependencies are installed, you can run the application using the follo
 ```bash
 streamlit run main.py
 ``` 
-
-

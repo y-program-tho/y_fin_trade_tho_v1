@@ -76,6 +76,7 @@ docs/_build/
 target/
 
 # Jupyter Notebook
+dev.ipynb
 .ipynb_checkpoints
 
 # IPython
@@ -135,6 +136,7 @@ celerybeat.pid
 *.sage.py
 
 # Environments
+y_fin_trade_v1_env
 .env
 .envrc
 .venv
