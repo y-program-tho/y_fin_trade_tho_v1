@@ -18,6 +18,10 @@ y_fin_trading_tho_v1
     │
     ├─ main.py
     │
+    └─ service/
+    │    │  
+    │    └ sheet_services.py
+    │
     └─ etl/
     │    │  
     │    └ yfinance_etl_to_gs.py
