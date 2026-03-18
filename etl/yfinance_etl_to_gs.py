@@ -2,7 +2,7 @@ import pandas as pd
 import yfinance as yf
 from services.sheet_services import SheetService
 
-def run_yf_to_gs_etl():
+def run_yf_to_gs_etl_multi_stock():
     # Dowload data from yfinance for top 5 stocks
     stonk_data = yf.download(['MSFT', 'AAPL', 'GOOG', "NVDA", "AMZN"], period='1mo')
 

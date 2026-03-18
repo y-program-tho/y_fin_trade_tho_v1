@@ -19,6 +19,7 @@ class SheetService:
         client = gspread.authorize(creds)
         self.sheet = client.open_by_key(sheet_id)
 
+
     @st.cache_data(ttl=1800)
     def read_sheet(self, worksheet_name):
         worksheet = self.sheet.worksheet(worksheet_name)
