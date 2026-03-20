@@ -17,19 +17,19 @@ The current architecture layout is as follows:
 y_fin_trading_tho_v1
     │
     ├─ main.py
-    │
+    │   
+    ├─ etl/
+    │   │  
+    │   └ yfinance_etl_to_gs.py
+    |   
+    ├─ fin_visualisation/ 
+    |   │ 
+    |   ├ charts.py 
+    |   └ tech_indicators.py
+    |   
     └─ service/
-    │    │  
-    │    └ sheet_services.py
-    │
-    └─ etl/
-    │    │  
-    │    └ yfinance_etl_to_gs.py
-    │
-    └─ fin_visualisation/ 
-         │ 
-         ├ tech_indicators.py
-         └ charts.py
+        │  
+        └ sheet_services.py    
 ```
 
 ## Data Sources

@@ -1,12 +1,6 @@
 from services.sheet_services import SheetService
 from fin_visualisation.tech_indicators import TechnicalIndicator
 
-def load_stock_data():
-    sheet_service = SheetService()
-
-    stock_df = sheet_service.read_sheet("stock_data")
-
-    return stock_df
 
 class TechnicalIndicator:
 
