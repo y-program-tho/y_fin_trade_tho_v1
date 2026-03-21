@@ -2,9 +2,26 @@ import pandas as pd
 import yfinance as yf
 from services.sheet_services import SheetService
 
+def extract_stock_data_yfinance():
+
+    stonks_df = yf.download(['MSFT', 'AAPL', 'GOOG', "NVDA", "AMZN"], period='1mo')
+
+    return stonks_df
+
+
+def clean_stock_data(df):
+
+    df.columns = df.columns.str.lower()
+
+    df = df.fillna()
+    
+    df = df.drop_duplicates()
+    
+    return df 
+
 def run_yf_to_gs_etl_multi_stock():
     # Dowload data from yfinance for top 5 stocks
-    stonk_data = yf.download(['MSFT', 'AAPL', 'GOOG', "NVDA", "AMZN"], period='1mo')
+    stonks_data = extract_stock_data_yfinance()
 
     # Transform stock data dataframe from wide to long 
     stonk_df_step_one = stonk_data.stack()
