@@ -17,6 +17,10 @@ The current architecture layout is as follows:
 y_fin_trading_tho_v1
     │
     ├─ main.py
+    |
+    ├─ config/
+    │   │  
+    │   └ logging_config.py
     │   
     ├─ etl/
     │   │  
@@ -26,6 +30,10 @@ y_fin_trading_tho_v1
     |   │ 
     |   ├ charts.py 
     |   └ tech_indicators.py
+    |
+    ├─ scheduler/ 
+    |   │  
+    |   └ etl_scheduler.py
     |   
     └─ service/
         │  
