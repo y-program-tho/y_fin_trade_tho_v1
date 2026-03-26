@@ -41,14 +41,16 @@ class SheetService:
     def write_to_sheet(self, worksheet_name, df):
 
         logger.info(f"Writing new data to sheet")
-
+ 
         worksheet = self.sheet.worksheet(worksheet_name)
 
         worksheet.clear()
 
-        worksheet.update([df.columns.values.tolist() + df.values.tolist()])
+        worksheet.update([df.columns.values.tolist()] + df.values.tolist())
 
         logger.info(f"Worksheet has been updated")
+
+        return
 
     def append_rows_to_sheet(self, worksheet_name, df, retries=3):
 

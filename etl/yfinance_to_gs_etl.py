@@ -11,7 +11,7 @@ def clean_stock_data(df):
     
     df.columns = df.columns.str.lower()
     
-    df = df.fillna()
+    df = df.fillna('-')
     
     df = df.drop_duplicates()
     
@@ -19,7 +19,7 @@ def clean_stock_data(df):
     
     return df 
 
-def transform_yf_multi_stock_data(df):
+def transform_yf_multi_stock_pivot_data(df):
 
     logger.info(f"Changing the structure of table")
 
@@ -60,15 +60,13 @@ def run_yf_to_gs_etl_multi_stock():
     logger.info("Starting ETL Pipeline")
 
     # Dowload data from yfinance for top 5 stocks
-    stonks_df = yf.download(['MSFT', 'AAPL', 'GOOG', "NVDA", "AMZN"], period='1mo')
-
-    sheet_service = SheetService()
-    sheet_service.write_to_sheet("raw_stock_data", stonks_df)
+    stonks_pivot_df = yf.download(['MSFT', 'AAPL', 'GOOG', "NVDA", "AMZN"], period='1mo')
 
     # Transform stock data dataframe from wide to long 
-    stonks_df = transform_yf_multi_stock_data(stonks_df)
+    stonks_df = transform_yf_multi_stock_pivot_data(stonks_pivot_df)
 
     stonks_df = clean_stock_data(stonks_df)
 
-    sheet_service.write_to_sheet("processed_stock_data", stonk_df_final)
-    return f"Data for {period} has been loaded to Google Sheets successfully. Size of data:{stonk_df_final.shape}"
+    sheet_service = SheetService()
+    sheet_service.write_to_sheet("processed_stock_data", stonks_df)
+    return f"Stock data has been loaded into Google Sheets successfully. Size of data:{stonk_df_final.shape}"
