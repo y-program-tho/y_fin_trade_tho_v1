@@ -6,7 +6,7 @@ setup_logging()
 
 st.title("y_fin_trade_tho_v1")
 sheet_service = SheetService()
-stonks_data = sheet_service.read_sheet("stock_price") 
+stonks_data = sheet_service.read_sheet("processed_stock_price") 
 st.dataframe(stonks_data)
 
 # Spacing
