@@ -10,16 +10,16 @@ from google.oauth2.service_account import Credentials
 logger = logging.getLogger(__name__)
 
 class SheetService:
-    def __init__(self):
 
-        load_dotenv()
-        scope = os.getenv('SCOPE')
-        cred_file = os.getenv('CRED_FILE')
-        sheet_id = os.getenv('SHEET_ID')
+    load_dotenv()
+    scope = os.getenv('SCOPE')
+    cred_file = os.getenv('CRED_FILE')
+    sheet_id = os.getenv('SHEET_ID')
+
+    def __init__(self, scope=scope, client=gspread.authorize(creds), sheet_id=sheet_id):
 
         creds = Credentials.from_service_account_file(cred_file, scopes=[scope])
 
-        client = gspread.authorize(creds)
         self.sheet = client.open_by_key(sheet_id)
 
         logger.info("Starting Sheet Services")
