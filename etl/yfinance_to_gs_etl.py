@@ -67,6 +67,8 @@ def run_yf_to_gs_etl_multi_stock():
 
     stonks_df = clean_stock_data(stonks_df)
     
+    stonks_df = detect_dupes_or_outliers(stonks_df)
+
     sheet_service = SheetService()
     sheet_service.write_to_sheet("processed_stock_data", stonks_df)
     return f"Stock data has been loaded into Google Sheets successfully. Size of data:{stonk_df_final.shape}"
