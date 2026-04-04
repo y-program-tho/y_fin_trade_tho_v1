@@ -66,7 +66,7 @@ def run_yf_to_gs_etl_multi_stock():
     stonks_df = transform_yf_multi_stock_pivot_data(stonks_pivot_df)
 
     stonks_df = clean_stock_data(stonks_df)
-    stonks_df = detect_dupes_or_outliers(stonks_df)
+    detect_dupes_or_outliers(stonks_df)
 
     sheet_service = SheetService()
     sheet_service.write_to_sheet("processed_stock_data", stonks_df)
