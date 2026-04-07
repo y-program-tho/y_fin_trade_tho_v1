@@ -43,6 +43,11 @@ y_fin_trading_tho_v1
 ## Data Sources
 Finacial data is sourced from yfinace library which provides access to Yahoo Finance data.
 
+## Data Schema
+For the data schema it is based on the transformed data from yfinance ("processed_stock_data" table), then there exists data that hold the technical indicators that are calculated from the stock data ("technical_indicator" table). Here are the schemas for each table:
+
+"processed_stock_data" table:
+
 ## Usage
 The platform will be deployed onto Streamlit, allowing users to interact with the data and visualizations in a user-friendly interface without needing to write code or prepare a development enviroment.
 
