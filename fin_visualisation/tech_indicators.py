@@ -18,13 +18,3 @@ class TechnicalIndicator:
         df = TechnicalIndicator.calc_ema(df)
         
         return df
-    
-def load_n_calc():
-    
-    sheet_service = SheetService()
-
-    df = sheet_service.read_sheet("stock_price")
-
-    df = TechnicalIndicator.calc_all_indicators(df)
-
-    return df
