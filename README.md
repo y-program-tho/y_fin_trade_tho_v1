@@ -70,7 +70,8 @@ For the data schema it is based on the transformed data from yfinance ("processe
 | EMA_20 | float | 180.22 | An exponential moving average that has a 20 value window per calculation  |
 | EMA_50 | float | 183.50 | An exponential moving average that has a 50 value window per calculation  |
   
-
+Note: The calculations for the technocal indicators are applied to each stock individually then stacked upon each other in the "tech_indicators" table,
+this is done due to executing the calculations upon the entire table would lead to incorrect calculationsfor close prices for all stocks. 
 
 ## Usage
 The platform will be deployed onto Streamlit, allowing users to interact with the data and visualizations in a user-friendly interface without needing to write code or prepare a development enviroment.
