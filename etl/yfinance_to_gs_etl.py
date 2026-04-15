@@ -7,8 +7,6 @@ logger = logging.getLogger(__name__)
 
 def clean_stock_data(df):
 
-    logger.info(f"Cleaning data from yfinance")
-    
     df.columns = df.columns.str.lower()
     
     df = df.fillna('-')
@@ -21,7 +19,7 @@ def clean_stock_data(df):
 
 def transform_yf_multi_stock_pivot_data(df):
 
-    logger.info(f"Changing the structure of table")
+    #logger.info(f"Changing the structure of table")
 
     df = df.stack()
     
@@ -33,7 +31,7 @@ def transform_yf_multi_stock_pivot_data(df):
 
 def validate_stock_data(df):
 
-    logger.info(f"")
+    #logger.info(f"")
 
     if df['close'].isnull().any():
         raise ValueError("Missing close prices")
@@ -45,7 +43,7 @@ def validate_stock_data(df):
 
 def detect_dupes_or_outliers(df):
 
-    logger.info(f"")
+    #logger.info(f"")
 
     if len(df.duplicated()) > 0:
         print("Duplicates detected")
@@ -57,7 +55,7 @@ def detect_dupes_or_outliers(df):
 
 def run_yf_to_gs_etl_multi_stock():
 
-    logger.info("Starting ETL Pipeline")
+    #logger.info("Starting ETL Pipeline")
 
     # Dowload data from yfinance for top 5 stocks
     stonks_pivot_df = yf.download(['MSFT', 'AAPL', 'GOOG', "NVDA", "AMZN"], period='1mo')

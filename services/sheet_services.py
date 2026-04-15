@@ -24,25 +24,25 @@ class SheetService:
 
         self.sheet = client.open_by_key(sheet_id)
 
-        logger.info("Starting Sheet Services")
+        #logger.info("Starting Sheet Services")
 
         return
 
     def read_sheet(self, worksheet_name):
 
-        logger.info(f"Reading worksheet: {worksheet_name}")
+        #logger.info(f"Reading worksheet: {worksheet_name}")
 
         worksheet = self.sheet.worksheet(worksheet_name)
         
         stonks_df = pd.DataFrame(worksheet.get_all_records())
 
-        logger.info(f"Data retrieved. No. of rows: {len(stonks_df)}, No. of columns: {len(stonks_df.columns)}")
+        #logger.info(f"Data retrieved. No. of rows: {len(stonks_df)}, No. of columns: {len(stonks_df.columns)}")
 
         return stonks_df
 
     def write_to_sheet(self, worksheet_name, df):
 
-        logger.info(f"Writing new data to sheet")
+        #logger.info(f"Writing new data to sheet")
  
         worksheet = self.sheet.worksheet(worksheet_name)
 
@@ -50,7 +50,7 @@ class SheetService:
 
         worksheet.update([df.columns.values.tolist()] + df.values.tolist())
 
-        logger.info(f"Worksheet has been updated")
+        #logger.info(f"Worksheet has been updated")
 
         return
 
@@ -65,13 +65,13 @@ class SheetService:
             try:
                 worksheet.append_rows(df.values.tolist())
 
-                logger.info(f"Appeneded {len(rows)} rows")
+                #logger.info(f"Appeneded {len(rows)} rows")
 
                 return
             
             except Exception as e:
 
-                logging.warning(f"Retry {attempt+1}, failed: {e}")
+                #logging.warning(f"Retry {attempt+1}, failed: {e}")
 
                 time.sleep(2)
 
